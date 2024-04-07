@@ -30,4 +30,7 @@ if 0 <= seconds_value < TOTAL_SECONDS_LIMIT:
     else:
         days_str = 'днів'
 
-    print(f'{days} {days_str}, {str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}')
+    formatted_days = f'{days} {days_str}'
+    formatted_time = f'{str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}'
+
+    print(f'{formatted_days}, {formatted_time}')
