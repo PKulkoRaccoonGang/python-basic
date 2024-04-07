@@ -20,9 +20,12 @@ if 0 <= seconds_value < TOTAL_SECONDS_LIMIT:
     hours, remaining_seconds = divmod(remaining_seconds, MINUTES_IN_HOUR * SECONDS_IN_MINUTE)
     minutes, seconds = divmod(remaining_seconds, SECONDS_IN_MINUTE)
 
-    if days == 1 or (days % 10 == 1 and days % 100 != 11):
+    is_singular_day_except_11 = (days % 10 == 1 and days % 100 != 11)
+    is_plural_days = (days % 100 < 10 or days % 100 >= 20)
+
+    if days == 1 or is_singular_day_except_11:
         days_str = 'день'
-    elif 2 <= days % 10 <= 4 and (days % 100 < 10 or days % 100 >= 20):
+    elif 2 <= days % 10 <= 4 and is_plural_days:
         days_str = 'дні'
     else:
         days_str = 'днів'
