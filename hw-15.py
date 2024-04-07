@@ -8,12 +8,17 @@
 # 22493 -> 0 днів, 06:14:53
 # 7948799 -> 91 день, 23:59:59
 
-number = int(input('Enter seconds value: '))
+TOTAL_SECONDS_LIMIT = 8640000
+SECONDS_IN_MINUTE = 60
+MINUTES_IN_HOUR = 60
+HOURS_IN_DAY = 24
 
-if 0 <= number < 8640000:
-    days, remaining_seconds = divmod(number, 24 * 60 * 60)
-    hours, remaining_seconds = divmod(remaining_seconds, 60 * 60)
-    minutes, seconds = divmod(remaining_seconds, 60)
+seconds_value = int(input('Enter seconds value: '))
+
+if 0 <= seconds_value < TOTAL_SECONDS_LIMIT:
+    days, remaining_seconds = divmod(seconds_value, HOURS_IN_DAY * MINUTES_IN_HOUR * SECONDS_IN_MINUTE)
+    hours, remaining_seconds = divmod(remaining_seconds, MINUTES_IN_HOUR * SECONDS_IN_MINUTE)
+    minutes, seconds = divmod(remaining_seconds, SECONDS_IN_MINUTE)
 
     if days == 1 or (days % 10 == 1 and days % 100 != 11):
         days_str = 'день'
