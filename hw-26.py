@@ -1,9 +1,9 @@
-import string
+from string import punctuation
 
 
 def first_word(text: str) -> str:
     """ Find the first word """
-    for char in string.punctuation.replace("'", ''):
+    for char in punctuation.replace("'", ''):
         text = text.replace(char, ' ')
     return text.split()[0]
 
