@@ -4,15 +4,15 @@ from typing import Iterable
 START_NUMBER = 2
 
 
-def is_prime_number(num: int) -> bool:
+def is_prime_number(number: int) -> bool:
     """Check if a number is prime"""
-    divisor_limit = int(num ** 0.5) + 1
+    divisor_limit = int(number ** 0.5) + 1
 
-    if num < START_NUMBER:
+    if number < START_NUMBER:
         return False
 
     for divisor in range(START_NUMBER, divisor_limit):
-        if num % divisor == 0:
+        if number % divisor == 0:
             return False
 
     return True
