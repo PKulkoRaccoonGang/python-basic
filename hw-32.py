@@ -1,5 +1,4 @@
 class Item:
-
     def __init__(self, name, price, description, dimensions):
         self.price = price
         self.description = description
@@ -11,7 +10,6 @@ class Item:
 
 
 class User:
-
     def __init__(self, name, surname, numberphone):
         self.name = name
         self.surname = surname
